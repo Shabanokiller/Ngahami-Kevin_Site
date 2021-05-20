@@ -1,6 +1,10 @@
 <?php
 //On demarre la session php
 session_start();
+if(isset($_SESSION['user'])){
+    header("Location: profil.php");
+    exit;
+}
 if(!empty($_POST)){
     if(isset($_POST['pass']) && !empty($_POST['pass']) && 
         isset($_POST['email']) && !empty($_POST['email']))

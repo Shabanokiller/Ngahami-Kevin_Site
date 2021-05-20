@@ -2,12 +2,12 @@
     session_start();
     require_once 'includes/connect.php';
     if(!isset($_SESSION["user"])){
-        header("Location: connexion.php");
+        header("Location: connexion.php?error1");
         exit;
     }
     // $afficherProfil = $db->query("SELECT * FROM users WHERE id = ?", 
     //     array($_SESSION["user"]));
-    
+    include_once "./navbar.php";
     // $afficherProfil = $afficherProfil->fetch();
     if(isset($_GET['user'])){
         if(isset($_POST['nom_lieu']) && !empty($_POST['nom_lieu']) && 
@@ -56,7 +56,7 @@
             // 'commentairesupdat'=>$commentairesupdat ));
 
             $query->execute();;
-    
+            
             //var_dump($user);die;
             // if(!$user){
             //     die("L'utilisateur et/ou le mot de passe est incorrect");
