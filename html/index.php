@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/styleAcceuil.css">
+    <link rel="stylesheet" href="../css/styleAcceuil.css">
     <title> PAGE DE RECENSEMENT</title>
 <head>
 <body>

@@ -4,7 +4,7 @@ if(isset($_SESSION['user'])){
     header("Location: profil.php");
     exit;
 }
-if(!empty($_POST)){
+if(!empty($_POST)){}
     if(isset($_POST['nickname']) && !empty($_POST['nickname']) &&
         isset($_POST['pass']) && !empty($_POST['pass']) && 
         isset($_POST['email']) && !empty($_POST['email']))
