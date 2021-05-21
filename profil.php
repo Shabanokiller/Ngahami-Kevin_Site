@@ -55,7 +55,7 @@
             // 'idupdat'=> $idupdat,
             // 'commentairesupdat'=>$commentairesupdat ));
 
-            $query->execute();;
+            $query->execute();
             
             //var_dump($user);die;
             // if(!$user){
