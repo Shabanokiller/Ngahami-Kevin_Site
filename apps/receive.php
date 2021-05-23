@@ -10,7 +10,7 @@ if (isset($_POST['JSON']))
 
 
 
-var_dump($donnee);
+//var_dump($donnee);
 
 
 
