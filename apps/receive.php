@@ -9,8 +9,7 @@ if (isset($_POST['JSON']))
 // $object = json_decode($requete, true);
 
 
-
-//var_dump($donnee);
+var_dump($donnee);
 
 
 
