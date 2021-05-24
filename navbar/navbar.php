@@ -5,8 +5,9 @@
     <body>
         <div id="navbar">
             <ul>
-                <li><a href="./visite.php">Visite</a></li>
-                <li>Liste Lieux</li>
+                <li class="active"><a href="../html/profil.php">ACCEUIL</a></li>
+                <li><a href="../html/visite.php">Visite</a></li>
+                <li><a href="../html/recherche.php">Liste Lieux</a></li>
                 <li><a href="../session/deconnexion.php">Deconnexion</a></li>
             </ul>
         </div>

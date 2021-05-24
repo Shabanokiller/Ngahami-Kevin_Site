@@ -3,7 +3,8 @@ let donnee = [];
 const addDonnee = (ev)=>{
     ev.preventDefault();
     let donnes ={
-        id : Date.now(),
+        // id : Date.now(),
+        mail: document.getElementById('mail').value,
         lieu: document.getElementById('nom_lieu').value,
         civique: document.getElementById('numero_civique').value,
         rue: document.getElementById('rue').value,
@@ -13,16 +14,23 @@ const addDonnee = (ev)=>{
         dateDepart: document.getElementById('Date Depart').value
     }
     donnee.push(donnes);
-    document.forms[0].reset();
+    //document.forms[0].reset();
     document.querySelector('form').reset();
+    const jsonString = JSON.stringify(donnes);
+    var serveur = "JSON="+jsonString;
+    const xhr = new XMLHttpRequest();
 
-    console.warn('added', {donnee} );
-    let pre = document.querySelector('#msg pre');
-    pre.textContent = '\n' + JSON.stringify(donnee, '\t', 2);
-
-    localStorage.setItem('Donnes', JSON.stringify(donnee) );
-
-
+    // xhr.onreadystatechange = function() {recupererReponse(xhr); };
+    xhr.open("POST", "../apps/receiveVisite.php");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange == function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            var return_data = xhr.responseText;
+            document.getElementById("status").innerHTML = return_data;
+        }
+    }
+    xhr.send(serveur);
+    //document.getElementById("status").innerHTML = "processing";
 }
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('btn').addEventListener('click', addDonnee);

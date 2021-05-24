@@ -50,6 +50,6 @@ if(isset($_POST['pass']) && !empty($_POST['pass']) &&
         
 
     }else{
-        die("Le formulaire est incomplte");
+        die("Le formulaire est incomplet");
     }
 ?>

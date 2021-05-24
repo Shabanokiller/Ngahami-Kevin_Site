@@ -78,7 +78,7 @@
             // header("Location: profil.php");
     
         }else{
-            die("Aucun utilisateur defini");
+            die("Toous les champs ne sont pas saisies");
         }
     }
 ?>

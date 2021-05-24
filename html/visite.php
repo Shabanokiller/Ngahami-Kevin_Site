@@ -10,6 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <title> PAGE DE RECENSEMENT</title>
+    <link rel="stylesheet" href="../css/styleNave.css">
+    <link rel="stylesheet" href="../css/styleForme.css">
 <head>
 <body>
     <!-- <h1> ACCEUIL </h1>
@@ -17,17 +19,17 @@
     <p> BIENEVNUE </P>
 
     <hr> -->
-    <h2> Profil de <?= $_SESSION["user"]["pseudo"] ?> </h2>
-
-    <p>Pseudo: <?= $_SESSION["user"]["pseudo"] ?>  </p>
-    <p>Email: <?= $_SESSION["user"]["email"] ?>  </p>
 
     <!-- <form method="get" action="recherche.php">
         Recherche : <input type="search" name="cherhce">
         <input type="submit" value="Recherche">
     </form> -->
 
-    <form method="POST" action="#">
+    <form id="form" method="POST" action="#">
+        <div>
+            <Label for ="Email">Email</label>    
+            <input type="texte" name="mail" id="mail" value="<?= $_SESSION["user"]["email"] ?>" placeholder="email...">
+        </div>
         <div>
             <Label for ="Lieu">Nom du lieu</label>    
             <input type="texte" name="nom_lieu" id="nom_lieu" placeholder="Nom Du Lieu...">
@@ -56,14 +58,16 @@
             <Label for ="Date Depart">Date Arrivee</label>    
             <input type="date" name="date_depart" id="Date Depart">
         </div>
-        <button id="btn" name="valid_connection"> Valider </button>
-        <!-- <input type="submit" id="btn" name="valid_connection" value="Validation"> -->
+        <!-- <button id="btn" name="valid_connection" onclick="postAjax();"> Valider </button> -->
+        <div id="status"></div>
+        <input type="submit" id="btn" name="valid_connection" value="Validation">
         <!-- <div id="msg">
             <pre></pre>
         </div> -->
     </form>
-    <script src="../js/envoie.js"></script>
-    <!-- <script src="../js/envoieDonnees.js"></script> -->
-    <!-- <script srcc="../js/scriptAjax.js"></script> -->
+    <!-- <script src="../js/java.js"></script> -->
+    <!-- <script src="../js/envoie.js"></script>  -->
+    <script src="../js/envoieDonnees.js"></script>
+    <!-- <script src="../js/ajax.js"></script> -->
 </body>
 </html>

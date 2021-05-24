@@ -4,14 +4,9 @@ const addDonnee = (ev)=>{
     ev.preventDefault();
     let donnes ={
         // id : Date.now(),
-        // mail: document.getElementById('mail').value,
-        lieu: document.getElementById('nom_lieu').value,
-        civique: document.getElementById('numero_civique').value,
-        rue: document.getElementById('rue').value,
-        ville: document.getElementById('ville').value,
-        province: document.getElementById('province').value,
-        dateArrivee: document.getElementById('Date Arrivee').value,
-        dateDepart: document.getElementById('Date Depart').value
+        username: document.getElementById('pseudo').value,
+        mail: document.getElementById('email').value,
+        pass: document.getElementById('pass').value
     }
     donnee.push(donnes);
     //document.forms[0].reset();
@@ -21,7 +16,7 @@ const addDonnee = (ev)=>{
     const xhr = new XMLHttpRequest();
 
     // xhr.onreadystatechange = function() {recupererReponse(xhr); };
-    xhr.open("POST", "../apps/receiveVisite.php");
+    xhr.open("POST", "../apps/receiveInscription.php");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange == function(){
         if(xhr.readyState == 4 && xhr.status == 200){

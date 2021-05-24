@@ -1,32 +1,32 @@
 <?php
-//session_start();
-    if(isset($_POST['nickname']) && !empty($_POST['nickname']) &&
-    isset($_POST['pass']) && !empty($_POST['pass']) && 
-    isset($_POST['email']) && !empty($_POST['email']))
+    if( !empty($_POST['email']))
     {
-        $pseudo = strip_tags($_POST["nickname"]);
+
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         {
             die("L'adresse email est incorrecte");
         }
-
-        // On hash le mot de passe 
-        $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
-
-        // on filter l'adresse mail
-
-        // On enregistre en bd
         require_once '../includes/connect.php';
-        $sql = "INSERT INTO `users`(`username`, `pass`, `email`) VALUES(:pseudo, '$pass', :email)";
+        $sql = "SELECT email INTO `users` WHERE `email` = :email";
         $query = $db->prepare($sql);
-        $query->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
         $query->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
 
         $query->execute();
         // $query->execute();
 
         require_once '../session/authentifier.classe.php';
-        $user = $query->fetch();
+        $resultat = $query->fetchAll(PDO::FETCH_OBJ);
+        $ctn = 1;
+
+        if($query -> rowCount() > 0)
+        {
+            echo"<span style='color:#fff'>Email existe deja.</span>";
+            echo"<script>$('#submit').prop('disabled',true);</script>";
+        }
+        else{
+            echo"<span style='color:#fff'>Email valide pour l'inscription.</span>";
+            echo"<script>$('#submit').prop('disabled',true);</script>";
+        }
 
         //var_dump($user);die;
         if(!$user){
@@ -47,8 +47,4 @@
             header("Location: ../html/profil.php");
         }
     }
-    // else{
-    //     setcookie("Erreur", "Vous devez inscrire un nom d'usager et un mot de passe.",time()+60)
-    //     header("Location: ../connexion.php");
-    // }
 ?>

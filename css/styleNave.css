@@ -8,6 +8,11 @@
     background: rgb(14, 211, 7);
 }
 
+/* #navbar h2{
+    list-style-type: inline-block;
+    text-align: center;
+} */
+
 #navbar ul{
     list-style-type: none;
     text-align: center;
@@ -15,6 +20,13 @@
 
 #navbar li{
     display: inline-block;
+    width: 120px;
+    margin: 15px;
     padding: 10px;
     color: #fff;
+}
+
+.active, #navbar li:hover{
+ background : #2bab0d;
+ border-radius: 3px;
 }
