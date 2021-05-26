@@ -8,7 +8,7 @@
     $header .= "Content-Type:text/html; charset=\"iso-8859-1";
     if(mail($destinataire, $sujet, $message, $header))
     {
-        echo "Votre email a ete envoye";
+        // echo "Votre email a ete envoye";
     }else{
         echo "echec de l'envoi";
     }
