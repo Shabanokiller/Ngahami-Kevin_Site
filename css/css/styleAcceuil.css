@@ -1,0 +1,27 @@
+body{
+    min-height: 90vh;
+    background-image: url('../image/covid19.jpg') ;
+    background-size: cover;
+    background-position: center;
+    color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form h1{
+    padding: 30px;
+}
+
+form .button{
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    color: #ffffff;
+    background-color:  #161618;
+    margin-bottom: 15px;
+    outline: none;
+    cursor: pointer;
+}
